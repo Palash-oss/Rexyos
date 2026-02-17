@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REXY | OS Agent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: #050505;
+        color: #e0e0e0;
+        font-family: 'JetBrains+Mono', monospace;
+        overflow: hidden;
+      }
+      .font-orbitron {
+        font-family: 'Orbitron', sans-serif;
+      }
+      @keyframes neon-pulse {
+        0%, 100% { box-shadow: 0 0 10px #00f2fe, 0 0 20px #00f2fe; }
+        50% { box-shadow: 0 0 25px #7ef9ff, 0 0 50px #7ef9ff; }
+      }
+      .rgb-border {
+        position: relative;
+        background: rgba(0, 0, 0, 0.8);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+      }
+      .rgb-border::after {
+        content: '';
+        position: absolute;
+        top: -2px; bottom: -2px;
+        left: -2px; right: -2px;
+        background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+        background-size: 400%;
+        z-index: -1;
+        animation: rgb-anim 20s linear infinite;
+        border-radius: inherit;
+      }
+      @keyframes rgb-anim {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .scanline {
+        width: 100%;
+        height: 100px;
+        z-index: 10;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 255, 255, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+        opacity: 0.1;
+        position: absolute;
+        bottom: 100%;
+        animation: scanline 4s linear infinite;
+      }
+      @keyframes scanline {
+        0% { bottom: 100%; }
+        100% { bottom: -100px; }
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #00ffcc22;
+        border-radius: 10px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #00ffcc44;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "jszip": "https://esm.sh/jszip@^3.10.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <div class="scanline"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

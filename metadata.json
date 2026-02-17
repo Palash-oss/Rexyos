@@ -1,0 +1,11 @@
+
+{
+  "name": "REXY - Local OS Autonomous Agent GUI",
+  "description": "A futuristic, cyberpunk-themed GUI for Rexy, an autonomous OS-level agent featuring voice control, vision analysis, and automated coding capabilities powered by Gemini.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera",
+    "display-capture",
+    "geolocation"
+  ]
+}
